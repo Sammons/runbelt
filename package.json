@@ -1,0 +1,148 @@
+{
+  "name": "runbelt",
+  "displayName": "runbelt",
+  "description": "Bindable commands that can reside wherever you like",
+  "version": "0.0.3",
+  "publisher": "Sammons",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sammons/runbelt.git"
+  },
+  "engines": {
+    "vscode": "^1.14.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:runbelt.cmd01",
+    "onCommand:runbelt.cmd02",
+    "onCommand:runbelt.cmd03",
+    "onCommand:runbelt.cmd04",
+    "onCommand:runbelt.cmd05",
+    "onCommand:runbelt.cmd06",
+    "onCommand:runbelt.cmd07",
+    "onCommand:runbelt.cmd08",
+    "onCommand:runbelt.cmd09",
+    "onCommand:runbelt.cmd10"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "runbelt.bin": {
+          "type": "string",
+          "default": "",
+          "description": "Location of binary used to invoke runbelt commands"
+        },
+        "runbelt.cmd01": {
+          "type": "object",
+          "description": "Runbelt Slot 1",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "location of cmd01",
+              "default": "~/.runbelt/cmd01.sh"
+            },
+            "name": {
+              "type": "string",
+              "description": "vanity name of the command",
+              "default": "RunbeltCmd1"
+            },
+            "immediate": {
+              "type": "boolean",
+              "default": true,
+              "description": "Do not wait for extra input, just run it"
+            },
+            "shell": {
+              "type": "boolean",
+              "default": true,
+              "description": "Run in an integrated terminal"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane"
+            },
+            "args": {
+              "type": "array",
+              "description": "List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": "some_arg"
+              }
+            }
+          }
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "runbelt.cmd01",
+        "title": "Custom Script Slot 01"
+      },
+      {
+        "command": "runbelt.cmd02",
+        "title": "Custom Script Slot 02"
+      },
+      {
+        "command": "runbelt.cmd03",
+        "title": "Custom Script Slot 03"
+      },
+      {
+        "command": "runbelt.cmd04",
+        "title": "Custom Script Slot 04"
+      },
+      {
+        "command": "runbelt.cmd05",
+        "title": "Custom Script Slot 05"
+      },
+      {
+        "command": "runbelt.cmd06",
+        "title": "Custom Script Slot 06"
+      },
+      {
+        "command": "runbelt.cmd07",
+        "title": "Custom Script Slot 07"
+      },
+      {
+        "command": "runbelt.cmd08",
+        "title": "Custom Script Slot 08"
+      },
+      {
+        "command": "runbelt.cmd09",
+        "title": "Custom Script Slot 09"
+      },
+      {
+        "command": "runbelt.cmd10",
+        "title": "Custom Script Slot 10"
+      },
+      {
+        "command": "runbelt.showLatestPanel",
+        "title": "Show latest output panel from a runbelt command"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.11",
+    "@types/lodash": "^4.14.71",
+    "bluebird": "^3.5.0",
+    "lodash": "^4.17.4",
+    "ps-node": "^0.1.6",
+    "source-map-support": "^0.4.15",
+    "terminate": "^2.1.0"
+  }
+}
