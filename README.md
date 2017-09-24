@@ -1,10 +1,80 @@
 # runbelt README
 
+Runbelt is for that moment when you really just want to seamlessly run a script without leaving the comfort of your editor.
+
 ## Features
 
-## Requirements
+10 configurable commands which can be bound to hotkeys.
+
+runbelt.cmd01
+runbelt.cmd02
+...
+runbelt.cmd10
+
+###Getting started
+
+  1) Set your runbelt.bin path in Preferences -> Settings
+    e.g. ` "runbelt.bin": "/bin/sh" `
+    note that runbelt will attempt to auto-detect sh/bash but that will invariably work
+    less well than a hand-picked path by you.
+
+  2) Configure runbelt.cmd01 setting in Preferences -> Settings
+    e.g. ` "runbelt.cmd01": { "location": "~/.runbelt/cmd01.sh" } `
+
+  3) Bind runbelt.cmd01 in Preferences -> Keyboard Shortcuts
+
+  4) Enjoy!
+
+###To bind a command to a hotkey 
+
+  1) Go to Preferences -> Keyboard Shortcuts
+
+  2) Search for runbelt.cmd01 (or cmd02 ... up to 10)
+
+  3) Select a keybinding for the command that shows up
+
+###Killing a command
+  A single slot will not run repeatedly concurrently, re-running the command while it is still
+  in progress will instead cancel the previous command.
+
+  This does not apply when running in a terminal, which will open an individual terminal
+  for every instance of the command
 
 ## Extension Settings
+
+```
+"runbelt.bin": "/bin/sh",
+    "runbelt.cmd01": {
+        // (required) this file will be run, if in shell mode it gets dumped to the shell
+        "location": "~/.runbelt/cmd.sh", 
+        
+        // (optional) run in an integrated terminal, not all other settings
+        // apply when running in a terminal:
+        // "customArgs", "args", "cwd" have no effect
+        "shell": true,
+
+        // (optional) list of arguments to be passed to the command
+        "args": [],
+        
+        // (optional) if set to true, vscode will prompt for arguments before running
+        "customArgs": false, 
+        
+        // (optional) current project directory, understands paths including ~
+        "cwd": ".", 
+        
+        // (optional) upon running, will focus the output, stealing focus from the current document
+        "focus": false, 
+        
+        // (optional) vanity name of the command to help distinguish commands
+        // shows in the bottom of the editor in the status indicator
+        "name": "",
+
+        // (optional) pops up a panel to view the output of the command
+        // when set to false, the output can be accessed by clicking the status
+        // indicator in the bottom margin of the editor
+        "show": true
+    }
+```
 
 ## Known Issues
 

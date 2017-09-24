@@ -31,45 +31,545 @@
       "properties": {
         "runbelt.bin": {
           "type": "string",
-          "default": "",
+          "default": "/bin/sh",
           "description": "Location of binary used to invoke runbelt commands"
         },
         "runbelt.cmd01": {
           "type": "object",
-          "description": "Runbelt Slot 1",
+          "description": "Runbelt Slot",
           "required": ["location"],
           "properties": {
             "location": {
               "type": "string",
-              "description": "location of cmd01",
-              "default": "~/.runbelt/cmd01.sh"
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
             },
             "name": {
               "type": "string",
-              "description": "vanity name of the command",
-              "default": "RunbeltCmd1"
-            },
-            "immediate": {
-              "type": "boolean",
-              "default": true,
-              "description": "Do not wait for extra input, just run it"
+              "description": "Vanity name of the command",
+              "default": ""
             },
             "shell": {
               "type": "boolean",
-              "default": true,
-              "description": "Run in an integrated terminal"
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
             },
             "show": {
               "type": "boolean",
               "default": true,
-              "description": "Show output in an output pane"
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description": "List of arguments to pass to the command",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
-                "default": "some_arg"
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd02": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin', defaults to false"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd03": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd04": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd05": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd06": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd07": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd08": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd09": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "runbelt.cmd10": {
+          "type": "object",
+          "description": "Runbelt Slot",
+          "required": ["location"],
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "Location of runbelt command file",
+              "default": "~/.runbelt/cmd.sh"
+            },
+            "cwd": {
+              "type": "string",
+              "description":
+                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "default": "."
+            },
+            "name": {
+              "type": "string",
+              "description": "Vanity name of the command",
+              "default": ""
+            },
+            "shell": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Dumps command file into an integrated terminal running 'bin'"
+            },
+            "focus": {
+              "type": "boolean",
+              "default": false,
+              "description": "Focus output on execution, defaults to false"
+            },
+            "show": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show output in an output pane, defaults to true"
+            },
+            "customArgs": {
+              "type": "boolean",
+              "default": false,
+              "description":
+                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+            },
+            "args": {
+              "type": "array",
+              "description":
+                "Only when shell=false, List of arguments to pass to the command",
+              "items": {
+                "type": "string",
+                "default": ""
               }
             }
           }
