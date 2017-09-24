@@ -94,6 +94,9 @@ runbelt.cmd10
 - Add action (Configure) when bin not guessed, or not found
 - upcase "configure" action text when displayed after not finding something
 
+## [0.0.8]
+- Stop showing warning about CWD when it isn't set
+
 **Enjoy!**
 
 ## License (MIT)

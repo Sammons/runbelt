@@ -305,7 +305,7 @@ async function runInBackground(
       return path.resolve(path.normalize(_cwd));
     };
     let placeToRunIn = resolveCwd(cwd);
-    if (!fs.existsSync(placeToRunIn)) {
+    if (!fs.existsSync(placeToRunIn) && cwd != null) {
       channel.appendLine(
         `WARN: ${placeToRunIn} does not exist, running in default cwd`
       );
