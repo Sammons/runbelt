@@ -79,7 +79,6 @@ async function findBin(overridePath?: string): Promise<Error | string> {
       return new Error("could not find bin");
     }
   } else {
-    console.log("searching");
     const PATH = process.env.PATH;
 
     if (!PATH) {
@@ -131,9 +130,7 @@ async function findBin(overridePath?: string): Promise<Error | string> {
 
     for (let place of placesToLook) {
       try {
-        console.log("searching place", place);
         let result = await testLocationP(place);
-        console.log("result", result);
         if (typeof result === "string") {
           return result;
         }
@@ -203,16 +200,34 @@ async function resolveLocationAndRun(
         let { location, name, immediate, show, shell, args } =
           settings[cmdKey] || ({} as any);
         if (!location) {
-          return vscode.window.showInformationMessage(
-            `Does not exist: ${location}, please configure runbelt.${cmdKey} in your settings`
-          );
+          return vscode.window
+            .showInformationMessage(
+              `Does not exist: ${location}, please configure runbelt.${cmdKey} in ${vscode.commands}`,
+              "configure"
+            )
+            .then(selected => {
+              if (selected === "edit") {
+                return vscode.commands.executeCommand(
+                  "workbench.action.openGlobalSettings"
+                );
+              }
+            });
         }
         location = location.replace("~", os.homedir());
         const resolvedLoc = path.resolve(location);
         if (!fs.existsSync(resolvedLoc)) {
-          return vscode.window.showInformationMessage(
-            `Does not exist: ${resolvedLoc}, please configure runbelt.${cmdKey} in your settings`
-          );
+          return vscode.window
+            .showInformationMessage(
+              `Does not exist: ${resolvedLoc}, please configure runbelt.${cmdKey} in your settings`,
+              "configure"
+            )
+            .then(selected => {
+              if (selected === "edit") {
+                return vscode.commands.executeCommand(
+                  "workbench.action.openGlobalSettings"
+                );
+              }
+            });
         } else {
           return thenRun(bin, settings[cmdKey] as Setting, resolvedLoc, cmdKey);
         }
@@ -272,20 +287,22 @@ async function runInBackground(
           );
         });
     }
-    const resolveCwd = (cwd) => {
-      let _cwd = cwd.replace('~', os.homedir());
+    const resolveCwd = cwd => {
+      let _cwd = cwd.replace("~", os.homedir());
       let workdir = vscode.workspace.rootPath;
       if (_cwd === ".") {
         return workdir;
       }
       if (_cwd.startsWith(`.${path.sep}`)) {
-        return path.resolve(workdir, path.normalize(_cwd))
+        return path.resolve(workdir, path.normalize(_cwd));
       }
       return path.resolve(path.normalize(_cwd));
-    }
-    let placeToRunIn = resolveCwd(cwd)
+    };
+    let placeToRunIn = resolveCwd(cwd);
     if (!fs.existsSync(placeToRunIn)) {
-      channel.appendLine(`WARN: ${placeToRunIn} does not exist, running in default cwd`);
+      channel.appendLine(
+        `WARN: ${placeToRunIn} does not exist, running in default cwd`
+      );
       placeToRunIn = resolveCwd(".");
     }
     const spawned = childProcess.spawn(bin, [pathToCmd].concat(args || []), {
@@ -344,7 +361,6 @@ async function runInShell(
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
-  console.log("activate");
   context.subscriptions.push(
     vscode.commands.registerCommand("runbelt.showLatestPanel", () => {
       if (latestPanel != null) {

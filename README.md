@@ -86,6 +86,9 @@ runbelt.cmd10
 ## [0.0.4]
 - Clarify message when location is missing for a command that is run
 
+## [0.0.5]
+- Make missing location actionable
+
 **Enjoy!**
 
 ## License (MIT)
