@@ -202,7 +202,7 @@ async function resolveLocationAndRun(
         if (!location) {
           return vscode.window
             .showInformationMessage(
-              `Does not exist: ${location}, please configure runbelt.${cmdKey} in ${vscode.commands}`,
+              `Does not exist: ${location}, please configure runbelt.${cmdKey} in your settings`,
               "configure"
             )
             .then(selected => {
