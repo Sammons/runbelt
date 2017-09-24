@@ -11,7 +11,7 @@ runbelt.cmd02
 ...
 runbelt.cmd10
 
-###Getting started
+### Getting started
 
   1) Set your runbelt.bin path in Preferences -> Settings
     e.g. ` "runbelt.bin": "/bin/sh" `
@@ -25,7 +25,7 @@ runbelt.cmd10
 
   4) Enjoy!
 
-###To bind a command to a hotkey 
+### To bind a command to a hotkey 
 
   1) Go to Preferences -> Keyboard Shortcuts
 
@@ -33,7 +33,7 @@ runbelt.cmd10
 
   3) Select a keybinding for the command that shows up
 
-###Killing a command
+### Killing a command
   A single slot will not run repeatedly concurrently, re-running the command while it is still
   in progress will instead cancel the previous command.
 
