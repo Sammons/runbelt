@@ -43,7 +43,7 @@ runbelt.cmd10
 ## Extension Settings
 
 ```
-"runbelt.bin": "/bin/sh",
+"runbelt.bin": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
     "runbelt.cmd01": {
         // (required) this file will be run, if in shell mode it gets dumped to the shell
         "location": "~/.runbelt/cmd.sh", 
@@ -88,6 +88,11 @@ runbelt.cmd10
 
 ## [0.0.6]
 - Make missing location actionable
+
+## [0.0.7]
+- Fix bug where empty cwd causes issue
+- Add action (Configure) when bin not guessed, or not found
+- upcase "configure" action text when displayed after not finding something
 
 **Enjoy!**
 

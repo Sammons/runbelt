@@ -195,7 +195,13 @@ async function resolveLocationAndRun(
     if (settings[cmdKey]) {
       const bin = await findBin(settings.bin);
       if (bin instanceof Error) {
-        return vscode.window.showErrorMessage(bin.message);
+        return vscode.window.showErrorMessage(bin.message, "Configure").then(selected => {
+          if (selected === "Configure") {
+            return vscode.commands.executeCommand(
+              "workbench.action.openGlobalSettings"
+            );
+          }
+        });
       } else {
         let { location, name, immediate, show, shell, args } =
           settings[cmdKey] || ({} as any);
@@ -203,10 +209,10 @@ async function resolveLocationAndRun(
           return vscode.window
             .showInformationMessage(
               `Does not exist: ${location}, please configure runbelt.${cmdKey} in your settings`,
-              "configure"
+              "Configure"
             )
             .then(selected => {
-              if (selected === "edit") {
+              if (selected === "Configure") {
                 return vscode.commands.executeCommand(
                   "workbench.action.openGlobalSettings"
                 );
@@ -219,10 +225,10 @@ async function resolveLocationAndRun(
           return vscode.window
             .showInformationMessage(
               `Does not exist: ${resolvedLoc}, please configure runbelt.${cmdKey} in your settings`,
-              "configure"
+              "Configure"
             )
             .then(selected => {
-              if (selected === "edit") {
+              if (selected === "Configure") {
                 return vscode.commands.executeCommand(
                   "workbench.action.openGlobalSettings"
                 );
@@ -288,7 +294,7 @@ async function runInBackground(
         });
     }
     const resolveCwd = cwd => {
-      let _cwd = cwd.replace("~", os.homedir());
+      let _cwd = (cwd || ".").replace("~", os.homedir());
       let workdir = vscode.workspace.rootPath;
       if (_cwd === ".") {
         return workdir;
