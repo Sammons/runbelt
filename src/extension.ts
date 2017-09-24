@@ -278,8 +278,8 @@ async function runInBackground(
         `${name ||
           cmdKey} already running. Terminating it. Run the command again to start a new instance.`
       );
+      status.dispose();
     }
-    status.dispose();
     cleanup(cmdKey);
   }
   if (prevWasDone) {

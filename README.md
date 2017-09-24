@@ -100,6 +100,9 @@ runbelt.cmd10
 ## [0.0.9]
 - Fix error when args is not set and customArgs is true
 
+## [0.0.10]
+- Fix bug where re-running the same command lots of times doesn't show status correctly until it cools off
+
 **Enjoy!**
 
 ## License (MIT)
