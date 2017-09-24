@@ -97,6 +97,9 @@ runbelt.cmd10
 ## [0.0.8]
 - Stop showing warning about CWD when it isn't set
 
+## [0.0.9]
+- Fix error when args is not set and customArgs is true
+
 **Enjoy!**
 
 ## License (MIT)

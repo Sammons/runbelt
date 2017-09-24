@@ -255,9 +255,10 @@ async function runInBackground(
   pathToCmd: string,
   cmdKey: string
 ) {
-  const { name, shell, show, focus, args, customArgs, cwd } = _.cloneDeep(
+  const { name, shell, show, focus, args: argDefaults, customArgs, cwd } = _.cloneDeep(
     setting
   );
+  const args = argDefaults || [];
   const status = vscode.window.createStatusBarItem();
   context.subscriptions.push(status);
   status.text = "Running" + (name || cmdKey);
@@ -352,7 +353,7 @@ async function runInShell(
   pathToCmd: string,
   cmdKey: string
 ) {
-  const { name, shell, show, focus, args, customArgs } = _.cloneDeep(setting);
+  const { name, shell, show, focus, customArgs } = _.cloneDeep(setting);
   const channel = vscode.window.createTerminal(name || cmdKey, bin);
   context.subscriptions.push(channel);
   channel.sendText(`${fs.readFileSync(pathToCmd)}`);

@@ -2,7 +2,7 @@
   "name": "runbelt",
   "displayName": "runbelt",
   "description": "Bindable commands that can reside wherever you like",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publisher": "Sammons",
   "license": "MIT",
   "repository": {
