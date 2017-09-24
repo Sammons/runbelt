@@ -12,7 +12,9 @@
   "engines": {
     "vscode": "^1.14.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [
     "onCommand:runbelt.cmd01",
     "onCommand:runbelt.cmd02",
@@ -37,7 +39,9 @@
         "runbelt.cmd01": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -46,8 +50,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -58,8 +61,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -74,13 +76,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -91,7 +91,9 @@
         "runbelt.cmd02": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -100,8 +102,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -112,8 +113,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin', defaults to false"
+              "description": "Dumps command file into an integrated terminal running 'bin', defaults to false"
             },
             "focus": {
               "type": "boolean",
@@ -128,13 +128,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -145,7 +143,9 @@
         "runbelt.cmd03": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -154,8 +154,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -166,8 +165,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -182,13 +180,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -199,7 +195,9 @@
         "runbelt.cmd04": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -208,8 +206,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -220,8 +217,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -236,13 +232,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -253,7 +247,9 @@
         "runbelt.cmd05": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -262,8 +258,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -274,8 +269,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -290,13 +284,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -307,7 +299,9 @@
         "runbelt.cmd06": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -316,8 +310,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -328,8 +321,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -344,13 +336,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -361,7 +351,9 @@
         "runbelt.cmd07": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -370,8 +362,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -382,8 +373,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -398,13 +388,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -415,7 +403,9 @@
         "runbelt.cmd08": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -424,8 +414,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -436,8 +425,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -452,13 +440,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -469,7 +455,9 @@
         "runbelt.cmd09": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -478,8 +466,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -490,8 +477,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -506,13 +492,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
@@ -523,7 +507,9 @@
         "runbelt.cmd10": {
           "type": "object",
           "description": "Runbelt Slot",
-          "required": ["location"],
+          "required": [
+            "location"
+          ],
           "properties": {
             "location": {
               "type": "string",
@@ -532,8 +518,7 @@
             },
             "cwd": {
               "type": "string",
-              "description":
-                "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
+              "description": "shell=false only, shells always run in working directory. In relative pathing . is ${workdir}",
               "default": "."
             },
             "name": {
@@ -544,8 +529,7 @@
             "shell": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Dumps command file into an integrated terminal running 'bin'"
+              "description": "Dumps command file into an integrated terminal running 'bin'"
             },
             "focus": {
               "type": "boolean",
@@ -560,13 +544,11 @@
             "customArgs": {
               "type": "boolean",
               "default": false,
-              "description":
-                "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
+              "description": "Only when shell=false, Prompts for custom arguments (inserted before static args), defaults to false"
             },
             "args": {
               "type": "array",
-              "description":
-                "Only when shell=false, List of arguments to pass to the command",
+              "description": "Only when shell=false, List of arguments to pass to the command",
               "items": {
                 "type": "string",
                 "default": ""
