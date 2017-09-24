@@ -204,14 +204,14 @@ async function resolveLocationAndRun(
           settings[cmdKey] || ({} as any);
         if (!location) {
           return vscode.window.showInformationMessage(
-            `Does not exist: ${location}`
+            `Does not exist: ${location}, please configure runbelt.${cmdKey} in your settings`
           );
         }
         location = location.replace("~", os.homedir());
         const resolvedLoc = path.resolve(location);
         if (!fs.existsSync(resolvedLoc)) {
           return vscode.window.showInformationMessage(
-            `Does not exist: ${resolvedLoc}`
+            `Does not exist: ${resolvedLoc}, please configure runbelt.${cmdKey} in your settings`
           );
         } else {
           return thenRun(bin, settings[cmdKey] as Setting, resolvedLoc, cmdKey);

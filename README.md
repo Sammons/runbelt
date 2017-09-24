@@ -80,8 +80,11 @@ runbelt.cmd10
 
 ## Release Notes
 
-## [0.0.1]
+## [0.0.3]
 - Initial release
+
+## [0.0.4]
+- Clarify message when location is missing for a command that is run
 
 **Enjoy!**
 
